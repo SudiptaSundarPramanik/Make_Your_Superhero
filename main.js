@@ -37,6 +37,18 @@ function my_keydown(e){
         document.getElementById("width_span").innerHTML=block_width_image;
         document.getElementById("height_span").innerHTML=block_height_image;
     }
+    if(keyPressed=="38"){
+        up();
+    }
+    if(keyPressed=="40"){
+        down();
+    }
+    if(keyPressed=="37"){
+        left();
+    }
+    if(keyPressed=="39"){
+        right();
+    }
     if(keyPressed=='70'){
         new_image('ironman_face.png');
         console.log("f");
@@ -56,5 +68,41 @@ function my_keydown(e){
     if(keyPressed=='72'){
         new_image('captain_america_left_hand.png');
         console.log("h");
+    }
+}
+function up(){
+    if(player_y>=0){
+        player_y=player_y-block_height_image;
+        console.log("block image height="+block_height_image);
+        console.log("When up arrow key is pressed,X="+player_x+",Y"+player_y);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+function down(){
+    if(player_y<=500){
+        player_y=player_y+block_height_image;
+        console.log("block image height="+block_height_image);
+        console.log("When down arrow key is pressed,X="+player_x+",Y"+player_y);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+function left(){
+    if(player_x>0){
+        player_x=player_x-block_width_image;
+        console.log("block image width="+block_width_image);
+        console.log("When left arrow key is pressed,X="+player_x+",Y"+player_y);
+        canvas.remove(player_object);
+        player_update();
+    }
+}
+function right(){
+    if(player_x<=850){
+        player_x=player_x+block_width_image;
+        console.log("block image width="+block_width_image);
+        console.log("When right arrow key is pressed,X="+player_x+",Y"+player_y);
+        canvas.remove(player_object);
+        player_update();
     }
 }
