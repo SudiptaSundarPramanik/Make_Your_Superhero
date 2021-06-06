@@ -1,10 +1,9 @@
-var canvas=new fabric.canvas("myCanvas");
+var canvas=new fabric.Canvas("myCanvas");
 block_width_image=50;
 block_height_image=50;
 player_x=10;
 player_y=10;
-player_object="";
-block_image="";
+var player_object="";
 function player_update(){
     fabric.Image.fromURL("player.png",function(Img){
         player_object=Img;
@@ -22,22 +21,40 @@ function new_image(get_image){
         block_object_image.set({top:player_y,left:player_x});
         canvas.add(block_object_image);
     });
-    window.addEventListener("keydown",my_keydown);
-    function my_keydown(e){
-        keyPressed=e.keyCode;
-        if(e.shiftKey==true&&keyPressed=="80"){
-            block_width_image=block_width_image+10;
-            block_height_image=block_height_image+10;
-            document.getElementById("width_span").innerHTML=block_width_image;
-            document.getElementById("height_span").innerHTML=block_height_image;
-        }
-        if(e.shiftKey&&keyPressed=="77"){
-            block_width_image=block_width_image-10;
-            block_height_image=block_height_image-10;
-            document.getElementById("width_span").innerHTML=block_width_image;
-            document.getElementById("height_span").innerHTML=block_height_image;
-        }
-        if(keyPressed=='70'){
-            new_image('ironman_face.png');
-        }
+}
+window.addEventListener("keydown",my_keydown);
+function my_keydown(e){
+    keyPressed=e.keyCode;
+    if(e.shiftKey==true&&keyPressed=="80"){
+        block_width_image=block_width_image+10;
+        block_height_image=block_height_image+10;
+        document.getElementById("width_span").innerHTML=block_width_image;
+        document.getElementById("height_span").innerHTML=block_height_image;
     }
+    if(e.shiftKey&&keyPressed=="77"){
+        block_width_image=block_width_image-10;
+        block_height_image=block_height_image-10;
+        document.getElementById("width_span").innerHTML=block_width_image;
+        document.getElementById("height_span").innerHTML=block_height_image;
+    }
+    if(keyPressed=='70'){
+        new_image('ironman_face.png');
+        console.log("f");
+    }
+    if(keyPressed=='66'){
+        new_image('spiderman_body.png');
+        console.log("b");
+    }
+    if(keyPressed=='76'){
+        new_image('hulk_legs.png');
+        console.log("l");
+    }
+    if(keyPressed=='82'){
+        new_image('thor_right_hand.png');
+        console.log("r");
+    }
+    if(keyPressed=='72'){
+        new_image('captain_america_left_hand.png');
+        console.log("h");
+    }
+}
